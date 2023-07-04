@@ -1,0 +1,20 @@
+preprocessing:
+  instance_type: ml.r5.4xlarge
+  sagemaker_processor_kwargs:
+    volume_size_in_gb: 400
+    max_runtime_in_seconds: 14400 # 4 hours
+  spark_config:
+    spark.sql.broadcastTimeout: "900"
+    spark.driver.memory: "30g"
+    spark.sql.debug.maxToStringFields: "250"
+    spark.executor.memory: "90g"
+
+  script_config:
+    data_file_paths:
+      accounts_app: s3a://yolt-dp-prd-data/cassandra/full_dump/accounts/account
+      accounts_yts: s3a://yolt-dp-prd-data-yts/cassandra/full_dump/ycs_accounts/account
+      test_users_app: s3a://yolt-dp-prd-data/cassandra/views/experimental_users
+      transactions_app: s3a://yolt-dp-prd-data/cassandra/full_dump/datascience/transactions
+      transactions_yts: s3a://yolt-dp-prd-data-yts/cassandra/full_dump/ycs_datascience/transactions
+      users_app: s3a://yolt-dp-prd-data/cassandra/full_dump/users/user
+      users_yts: s3a://yolt-dp-prd-data-yts/cassandra/full_dump/ycs_users/user

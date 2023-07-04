@@ -1,0 +1,32 @@
+model_name: categories-model
+domain: yoltapp
+model_bucket: yolt-dp-{{ env }}-datascience-categories-model
+aws_iam_role_name: YoltDatascienceSagemakerCategoriesModel
+airflow_dag_file:
+  - "dags/categories_all_train_dag.py"
+# Dir name of the package dir. This dir should be located in the repo root! It will be used
+# to package the model code into an archive.
+package_dir: categories_model
+
+preprocessing:
+  processing_type: spark
+  entrypoint: "categories_model/preprocessing/main.py"
+  job_docker_image: "{{ docker_registry }}/datascience/yds-pyspark-preprocessing:f05301fe"
+  sagemaker_processor_kwargs:
+    volume_size_in_gb: 30
+    max_runtime_in_seconds: 3600
+  spark_config:
+    spark.driver.memory: "30g"
+  script_config:
+    docker_output_path: /opt/ml/processing/output
+
+training:
+  training_type: tensorflow
+  job_docker_image: "{{ docker_registry }}/datascience/yds-tensorflow-training:f05301fe"
+  entrypoint: "categories_model/training/main.py"
+  additional_requirements_file: training_requirements.txt
+  sagemaker_processor_kwargs:
+    max_run: 43200 # 12h
+  script_config:
+    max_train_retry: 2
+    docker_output_path: /opt/ml/model

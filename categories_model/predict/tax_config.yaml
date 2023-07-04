@@ -1,0 +1,53 @@
+tax_label_column: tax_label
+mapping:
+  NL:
+    credit:
+      Dividendbelasting: Tax Returns
+      Loon_belasting: Tax Returns
+      Loonbelasting: Tax Returns
+      Loonbelasting_naheffing: Tax Returns
+      Motorrijtuigenbelasting: Tax Returns
+      Omzetbelasting: Tax Returns
+      Other: Other Income
+      Toeslag: Other Income
+      Venootschapsbelasting: Tax Returns
+      Voorlopige_belasting: Tax Returns
+      Zorgverzekeringswet: Other Income
+      Douanebelasting: Tax Returns
+      Overige: Other Income
+      Inkomstenbelasting: Other Income
+      Milieu_investeringsaftrek: Other Income
+    debit:
+      Acceptgiro: Unspecified Tax
+      Dividendbelasting: Unspecified Tax
+      Fijnstoftoeslag: Unspecified Tax
+      Inkomsten_belasting: Unspecified Tax
+      Inkomstenbelasting: Unspecified Tax
+      Douanebelasting: Unspecified Tax
+      Overige: Unspecified Tax
+      Inkomstenbelasting_gemoedbezwaarden: Unspecified Tax
+      Inkomstenbelasting_premievolksverzekering: Unspecified Tax
+      Loon_belasting: Payroll Tax
+      Loonbelasting: Payroll Tax
+      Loonbelasting_naheffing: Payroll Tax
+      Motorrijtuigenbelasting: Unspecified Tax
+      Motorrijtuigenbelasting_naheffing: Unspecified Tax
+      Omzetbelasting: Sales Tax
+      Omzetbelasting_naheffing: Sales Tax
+      Other: Unspecified Tax
+      Toeslag: Unspecified Tax
+      Venootschapsbelasting: Corporate Income Tax
+      Voorlopige_belasting: Unspecified Tax
+      Zorgverzekeringswet: Unspecified Tax
+
+  GB:
+    credit:
+      Child_benefit: Other Income
+      Child_tax_credit: Unspecified Tax
+      Working_tax_credit: Other Income
+    debit:
+      Self_assessment_tax: Unspecified Tax
+      Corporate_tax: Corporate Income Tax
+      VAT: Sales Tax
+      Vehicle_tax: Unspecified Tax
+      Council_tax: Unspecified Tax

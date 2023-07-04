@@ -1,0 +1,2 @@
+--index-url https://nexus.yolt.io:443/repository/pypi-group/simple
+tensorflow-text==2.5.0

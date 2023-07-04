@@ -1,0 +1,22 @@
+preprocessing:
+  instance_type: "ml.t3.2xlarge"
+  script_config:
+    sample_start_date: "2018-02-01"
+    sample_end_date: "2018-03-01"
+    n_model_samples_per_country: 3000
+    n_production_samples: 1000
+    n_validation_samples: 1000,
+    n_test_samples: 1000,
+    data_file_paths:
+      accounts: s3a://yolt-dp-dta-datascience-categories-model/input/account.csv
+      historical_feedback: s3a://yolt-dp-dta-datascience-categories-model/input/historical_feedback/*.csv
+      test_users: s3a://yolt-dp-dta-datascience-categories-model/input/test_users.csv
+      transactions: s3a://yolt-dp-dta-datascience-categories-model/input/transactions.csv
+      user_multiple_feedback_applied: s3a://yolt-dp-dta-datascience-categories-model/input/data_science_events/user_multiple_feedback_applied.json
+      user_multiple_feedback_created: s3a://yolt-dp-dta-datascience-categories-model/input/data_science_events/user_multiple_feedback_created.json
+      user_single_feedback_created: s3a://yolt-dp-dta-datascience-categories-model/input/data_science_events/user_single_feedback_created.json
+      users: s3a://yolt-dp-dta-datascience-categories-model/input/user.csv
+
+training:
+  script_config:
+    batch_size: 128

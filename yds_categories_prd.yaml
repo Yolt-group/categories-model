@@ -1,0 +1,21 @@
+preprocessing:
+  instance_type: ml.r5.4xlarge
+  sagemaker_processor_kwargs:
+    volume_size_in_gb: 400
+  spark_config:
+    spark.sql.broadcastTimeout: "900"
+    spark.driver.memory: "30g"
+    spark.sql.debug.maxToStringFields: "250"
+    spark.executor.memory: "90g"
+  script_config:
+    sample_start_date: "2021-07-01"
+    sample_end_date: "2021-08-01"
+    data_file_paths:
+      accounts: s3a://yolt-dp-prd-data/cassandra/full_dump/accounts/account
+      historical_feedback: s3a://yolt-dp-prd-data/static/categories_model/historical_feedback/*
+      test_users: s3a://yolt-dp-prd-data/cassandra/views/experimental_users
+      transactions: s3a://yolt-dp-prd-data/cassandra/full_dump/datascience/transactions
+      user_multiple_feedback_applied: s3a://yolt-dp-prd-data/kafka/views/datascienceEvents__flat_hashed/source__source=categories/type__name=UserMultipleFeedbackApplied
+      user_multiple_feedback_created: s3a://yolt-dp-prd-data/kafka/views/datascienceEvents__flat_hashed/source__source=categories/type__name=UserMultipleFeedbackCreated
+      user_single_feedback_created: s3a://yolt-dp-prd-data/kafka/views/datascienceEvents__flat_hashed/source__source=categories/type__name=UserSingleFeedbackCreated
+      users: s3a://yolt-dp-prd-data/cassandra/full_dump/users/user

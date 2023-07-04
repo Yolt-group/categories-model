@@ -1,0 +1,10 @@
+name: categories_model
+dependencies:
+  - python=3.7
+  - pip
+  - pip:
+      - --extra-index-url https://nexus.yolt.io:443/repository/pypi-group/simple
+      - .[test]
+      - .[preprocessing]
+      # - .[training]
+      - .[dev]
